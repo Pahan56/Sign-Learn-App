@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, View } from 'react-native';
+import AppNavigator from './src/navigation/AppNavigator';
+import { initializeDatabase } from './src/database/database';
+import { colors } from './src/constants/theme';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  const [ready, setReady] = useState(false);
+  const [error, setError] = useState('');
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  useEffect(() => {
+    initializeDatabase()
+      .then(() => setReady(true))
+      .catch((err) => setError(err.message || 'Could not initialize local database.'));
+  }, []);
+
+  if (!ready) {
+    return (
+      <View style={{ flex: 1, backgroundColor: colors.background, alignItems: 'center', justifyContent: 'center' }}>
+        {error ? null : <ActivityIndicator size="large" color={colors.primary} />}
+      </View>
+    );
+  }
+
+  return <AppNavigator />;
+}
