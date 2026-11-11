@@ -1,44 +1,128 @@
-import { alphabetData } from './alphabetData';
-import { numberData } from './numberData';
-import { wordData } from './signData';
-
-// Quiz questions test recognition of the local learning labels.
-// Replace/extend these with questions based on verified Sri Lankan sign resources.
-const allItems = [...alphabetData, ...numberData, ...wordData];
 
 export const quizData = [
-  ...alphabetData.slice(0, 7).map((item, i) => ({
-    id: `q-letter-${i + 1}`,
-    question: `Which letter comes after ${item.title}?`,
-    answer: alphabetData[(item.index) % alphabetData.length].title,
-    options: [
-      alphabetData[(item.index) % 26].title,
-      alphabetData[(item.index + 1) % 26].title,
-      alphabetData[(item.index + 2) % 26].title,
-      alphabetData[(item.index + 3) % 26].title,
-    ],
-    explanation: `The next letter after ${item.title} is ${alphabetData[item.index % 26].title}.`,
-  })),
-  ...numberData.slice(0, 5).map((item, i) => ({
-    id: `q-number-${i + 1}`,
-    question: `What number comes after ${item.title}?`,
-    answer: String((Number(item.title) + 1) % 10),
-    options: [
-      String((Number(item.title) + 1) % 10),
-      String((Number(item.title) + 2) % 10),
-      String((Number(item.title) + 3) % 10),
-      String((Number(item.title) + 4) % 10),
-    ],
-    explanation: `The next number after ${item.title} is ${(Number(item.title) + 1) % 10}.`,
-  })),
-  ...wordData.slice(0, 8).map((item, i) => {
-    const distractors = wordData.filter((w) => w.id !== item.id).slice(i, i + 3).map((w) => w.title);
-    return {
-      id: `q-word-${i + 1}`,
-      question: `Which vocabulary item belongs to the category "${item.category}"?`,
-      answer: item.title,
-      options: [item.title, ...distractors].sort((a, b) => a.localeCompare(b)),
-      explanation: `${item.title} is in the ${item.category} category.`,
-    };
-  }),
+  // ASL Alphabet Questions
+
+  {
+    id: 1,
+    question: 'Which ASL alphabet letter is shown in this image?',
+    image: require('../../assets/quiz/a.jpg'),
+    answer: 'A',
+    options: ['A', 'F', 'K', 'M'],
+    explanation: 'The correct answer is A.',
+  },
+  {
+    id: 2,
+    question: 'Which ASL alphabet letter is shown in this image?',
+    image: require('../../assets/quiz/f.jpg'),
+    answer: 'F',
+    options: ['F', 'P', 'Q', 'S'],
+    explanation: 'The correct answer is F.',
+  },
+  {
+    id: 3,
+    question: 'Which ASL alphabet letter is shown in this image?',
+    image: require('../../assets/quiz/k.jpg'),
+    answer: 'K',
+    options: ['K', 'M', 'V', 'Y'],
+    explanation: 'The correct answer is K.',
+  },
+  {
+    id: 4,
+    question: 'Which ASL alphabet letter is shown in this image?',
+    image: require('../../assets/quiz/m.jpg'),
+    answer: 'M',
+    options: ['A', 'M', 'P', 'X'],
+    explanation: 'The correct answer is M.',
+  },
+  {
+    id: 5,
+    question: 'Which ASL alphabet letter is shown in this image?',
+    image: require('../../assets/quiz/p.jpg'),
+    answer: 'P',
+    options: ['F', 'K', 'P', 'Q'],
+    explanation: 'The correct answer is P.',
+  },
+  {
+    id: 6,
+    question: 'Which ASL alphabet letter is shown in this image?',
+    image: require('../../assets/quiz/q.jpg'),
+    answer: 'Q',
+    options: ['Q', 'S', 'V', 'X'],
+    explanation: 'The correct answer is Q.',
+  },
+  {
+    id: 7,
+    question: 'Which ASL alphabet letter is shown in this image?',
+    image: require('../../assets/quiz/s.jpg'),
+    answer: 'S',
+    options: ['A', 'K', 'S', 'Y'],
+    explanation: 'The correct answer is S.',
+  },
+  {
+    id: 8,
+    question: 'Which ASL alphabet letter is shown in this image?',
+    image: require('../../assets/quiz/v.jpg'),
+    answer: 'V',
+    options: ['M', 'P', 'V', 'X'],
+    explanation: 'The correct answer is V.',
+  },
+  {
+    id: 9,
+    question: 'Which ASL alphabet letter is shown in this image?',
+    image: require('../../assets/quiz/x.jpg'),
+    answer: 'X',
+    options: ['F', 'Q', 'S', 'X'],
+    explanation: 'The correct answer is X.',
+  },
+  {
+    id: 10,
+    question: 'Which ASL alphabet letter is shown in this image?',
+    image: require('../../assets/quiz/y.jpg'),
+    answer: 'Y',
+    options: ['K', 'M', 'V', 'Y'],
+    explanation: 'The correct answer is Y.',
+  },
+
+  // ASL Everyday Signs
+
+  {
+    id: 11,
+    question: 'What does this ASL sign mean?',
+    image: require('../../assets/quiz/hi.jpg'),
+    answer: 'Hi',
+    options: ['Hi', 'Mom', 'More', 'No'],
+    explanation: 'This sign represents the greeting Hi.',
+  },
+  {
+    id: 12,
+    question: 'What does this ASL sign mean?',
+    image: require('../../assets/quiz/mom.jpg'),
+    answer: 'Mom',
+    options: ['Hi', 'Mom', 'No', 'More'],
+    explanation: 'This sign represents Mom.',
+  },
+  {
+    id: 13,
+    question: 'What does this ASL sign mean?',
+    image: require('../../assets/quiz/more.jpg'),
+    answer: 'More',
+    options: ['Mom', 'More', 'Hi', 'All Done'],
+    explanation: 'This sign represents More.',
+  },
+  {
+    id: 14,
+    question: 'What does this ASL sign mean?',
+    image: require('../../assets/quiz/no.jpg'),
+    answer: 'No',
+    options: ['Hi', 'More', 'No', 'Mom'],
+    explanation: 'This sign represents No.',
+  },
+  {
+    id: 15,
+    question: 'What does this ASL sign mean?',
+    image: require('../../assets/quiz/alldone.jpg'),
+    answer: 'All Done',
+    options: ['Mom', 'No', 'More', 'All Done'],
+    explanation: 'This sign represents All Done.',
+  },
 ];
