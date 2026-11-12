@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-// Import all screens
+// Import screens
 import HomeScreen from '../screens/HomeScreen';
+import LearningMenu from '../screens/LearningMenu';
 import AlphabetScreen from '../screens/AlphabetScreen';
 import NumbersScreen from '../screens/NumbersScreen';
 import WordsScreen from '../screens/WordsScreen';
@@ -19,57 +21,69 @@ export default function AppNavigator() {
         headerStyle: {
           backgroundColor: '#4A90E2',
         },
+
         headerTintColor: '#FFFFFF',
+
         headerTitleStyle: {
           fontWeight: 'bold',
           fontSize: 20,
         },
+
         headerTitleAlign: 'center',
       }}
     >
 
-      {/* Home Screen */}
+      {/* Welcome Home Page */}
       <Stack.Screen
         name="Home"
         component={HomeScreen}
         options={{
-          title: 'SignLearn LK',
+          headerShown:false,
         }}
       />
 
-      {/* Alphabet Screen */}
+      {/* Learning Menu Page */}
+      <Stack.Screen
+        name="LearningMenu"
+        component={LearningMenu}
+        options={{
+          title: 'Menu',
+        }}
+      />
+
+      {/* Alphabet */}
       <Stack.Screen
         name="Alphabet"
         component={AlphabetScreen}
         options={{
-          title: 'Learn Alphabet',
+          title: 'Alphabet',
         }}
       />
 
-      {/* Numbers Screen */}
+      {/* Numbers */}
       <Stack.Screen
         name="Numbers"
         component={NumbersScreen}
         options={{
-          title: 'Learn Numbers',
+          title: 'Numbers',
         }}
       />
 
-      {/* Everyday Words Screen */}
+      {/* Words */}
       <Stack.Screen
         name="Words"
         component={WordsScreen}
         options={{
-          title: 'Everyday Words',
+          title: 'Day-Today Words',
         }}
       />
 
-      {/* Quiz Screen */}
+      {/* Quiz */}
       <Stack.Screen
         name="Quiz"
         component={QuizScreen}
         options={{
-          title: 'Sign Language Quiz',
+          title: 'SignLearn Quiz',
         }}
       />
 
