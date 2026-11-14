@@ -1,8 +1,9 @@
 import React from 'react';
 
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-// Import screens
+// Import Screens
 import HomeScreen from '../screens/HomeScreen';
 import LearningMenu from '../screens/LearningMenu';
 import AlphabetScreen from '../screens/AlphabetScreen';
@@ -15,78 +16,79 @@ const Stack = createNativeStackNavigator();
 
 export default function AppNavigator() {
   return (
-    <Stack.Navigator
-      initialRouteName="Home"
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: '#4A90E2',
-        },
+    <NavigationContainer>
 
-        headerTintColor: '#FFFFFF',
-
-        headerTitleStyle: {
-          fontWeight: 'bold',
-          fontSize: 20,
-        },
-
-        headerTitleAlign: 'center',
-      }}
-    >
-
-      {/* Welcome Home Page */}
-      <Stack.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          headerShown:false,
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#4A90E2',
+          },
+          headerTintColor: '#FFFFFF',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize: 20,
+          },
+          headerTitleAlign: 'center',
         }}
-      />
+      >
 
-      {/* Learning Menu Page */}
-      <Stack.Screen
-        name="LearningMenu"
-        component={LearningMenu}
-        options={{
-          title: 'Menu',
-        }}
-      />
+        {/* Home Screen */}
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
 
-      {/* Alphabet */}
-      <Stack.Screen
-        name="Alphabet"
-        component={AlphabetScreen}
-        options={{
-          title: 'Alphabet',
-        }}
-      />
+        {/* Learning Menu Screen */}
+        <Stack.Screen
+          name="LearningMenu"
+          component={LearningMenu}
+          options={{
+            title: 'Menu',
+          }}
+        />
 
-      {/* Numbers */}
-      <Stack.Screen
-        name="Numbers"
-        component={NumbersScreen}
-        options={{
-          title: 'Numbers',
-        }}
-      />
+        {/* Alphabet Screen */}
+        <Stack.Screen
+          name="Alphabet"
+          component={AlphabetScreen}
+          options={{
+            title: 'Alphabet',
+          }}
+        />
 
-      {/* Words */}
-      <Stack.Screen
-        name="Words"
-        component={WordsScreen}
-        options={{
-          title: 'Day-Today Words',
-        }}
-      />
+        {/* Numbers Screen */}
+        <Stack.Screen
+          name="Numbers"
+          component={NumbersScreen}
+          options={{
+            title: 'Numbers',
+          }}
+        />
 
-      {/* Quiz */}
-      <Stack.Screen
-        name="Quiz"
-        component={QuizScreen}
-        options={{
-          title: 'SignLearn Quiz',
-        }}
-      />
+        {/* Words Screen */}
+        <Stack.Screen
+          name="Words"
+          component={WordsScreen}
+          options={{
+            title: 'Everyday Words',
+          }}
+        />
 
-    </Stack.Navigator>
+        {/* Quiz Screen */}
+        <Stack.Screen
+          name="Quiz"
+          component={QuizScreen}
+          options={{
+            title: 'SignLearn Quiz',
+          }}
+        />
+
+      </Stack.Navigator>
+
+    </NavigationContainer>
   );
 }
