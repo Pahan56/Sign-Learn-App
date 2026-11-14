@@ -3,86 +3,120 @@ import React from 'react';
 import {
   View,
   Text,
+  Image,
   TouchableOpacity,
   StyleSheet,
+  SafeAreaView,
+  useWindowDimensions,
 } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
-
-  const categories = [
-    { title: 'Alphabet', route: 'Alphabet', icon: '🔤' },
-    { title: 'Numbers', route: 'Numbers', icon: '🔢' },
-    { title: 'Everyday Words', route: 'Words', icon: '💬' },
-    { title: 'Quiz', route: 'Quiz', icon: '📝' },
-    { title: 'Favourites', route: 'Favourites', icon: '❤️' },
-  ];
+  const { height } = useWindowDimensions();
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
 
-      <Text style={styles.welcome}>
-        Welcome to SignLearn LK!
-      </Text>
+      {/* Hero Image */}
+      <Image
+        source={require('../../assets/girl.jpg')}
+        style={[styles.heroImage, { height: height * 0.5 }]}
+        resizeMode="cover"
+      />
 
-      <Text style={styles.description}>
-        Learn Sri Lankan Sign Language
-      </Text>
+      {/* Welcome Content */}
+      <View style={styles.content}>
 
-      {categories.map((item, index) => (
+        <Text style={styles.title}>
+          SignLearn
+        </Text>
 
+        <Text style={styles.welcome}>
+          Welcome to SignLearn!
+        </Text>
+
+        <Text style={styles.subtitle}>
+          Learn. Sign. Connect.
+        </Text>
+
+        <Text style={styles.description}>
+          Discover Sign Language
+          through interactive learning.
+        </Text>
+
+        {/* Start Learning Button */}
         <TouchableOpacity
-          key={index}
           style={styles.button}
-          onPress={() => navigation.navigate(item.route)}
+          onPress={() => navigation.navigate('LearningMenu')}
         >
-
           <Text style={styles.buttonText}>
-            {item.icon}   {item.title}
+            START LEARNING
           </Text>
-
         </TouchableOpacity>
 
-      ))}
+      </View>
 
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
-    padding: 20,
+    backgroundColor: '#FFFFFF',
+  },
+
+  heroImage: {
+    width: '100%',
+  },
+
+  content: {
+    flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 25,
+  },
+
+  title: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    color: '#315C9B',
+    marginBottom: 8,
   },
 
   welcome: {
-    fontSize: 25,
+    fontSize: 21,
     fontWeight: 'bold',
-    textAlign: 'center',
+    color: '#243746',
     marginBottom: 10,
-    color: '#1E293B',
+  },
+
+  subtitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#25A99A',
+    marginBottom: 12,
   },
 
   description: {
-    fontSize: 16,
+    fontSize: 15,
+    color: '#6B7C93',
     textAlign: 'center',
-    marginBottom: 30,
-    color: '#64748B',
+    lineHeight: 23,
+    marginBottom: 25,
   },
 
   button: {
-    backgroundColor: '#2563EB',
-    padding: 18,
-    borderRadius: 12,
-    marginBottom: 15,
+    backgroundColor: '#315C9B',
+    paddingVertical: 16,
+    paddingHorizontal: 40,
+    borderRadius: 30,
+    elevation: 4,
   },
 
   buttonText: {
     color: '#FFFFFF',
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
-    textAlign: 'center',
+    letterSpacing: 1,
   },
-
 });
