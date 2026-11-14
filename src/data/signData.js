@@ -1,0 +1,112 @@
+//sign language daily words
+export const signData = [
+  {
+  
+    id: '1',
+    word: 'Wait',
+    category: 'Common Needs',
+    image: require('../../assets/images/words/wait.jpg'),
+  },
+  {
+    id: '2',
+    word: 'Dad',
+    category: 'Family',
+    image: require('../../assets/images/words/dad.jpg'),
+  },
+  {
+    id: '3',
+    word: 'What',
+    category: 'Common Needs',
+    image: require('../../assets/images/words/what.jpg'),
+  },
+  {
+    id: '4',
+    word: 'Good Day',
+    category: 'Greetings',
+    image: require('../../assets/images/words/goodday.jpg'),
+  },
+  {
+    id: '5',
+    word: 'No',
+    category: 'Common Needs',
+    image: require('../../assets/images/words/no.jpg'),
+  },
+  {
+    id: '6',
+    word: 'Welcome',
+    category: 'Greetings',
+    image: require('../../assets/images/words/welcome.jpg'),
+  },
+  {
+    id: '7',
+    word: 'All Done',
+    category: 'Common Needs',
+    image: require('../../assets/images/words/alldone.jpg'),
+  },
+  {
+    id: '8',
+    word: 'Love',
+    category: 'Feelings',
+    image: require('../../assets/images/words/love.jpg'),
+  },
+  {
+    id: '9',
+    word: 'Family',
+    category: 'Family',
+    image: require('../../assets/images/words/family.jpg'),
+  },
+  {
+    id: '10',
+    word: 'Happy Birthday',
+    category: 'Greetings',
+    image: require('../../assets/images/words/hbd.jpg'),
+  },
+  {
+    id: '11',
+    word: 'More',
+    category: 'Common Needs',
+    image: require('../../assets/images/words/more.jpg'),
+  },
+  {
+    id: '12',
+    word: 'Please',
+    category: 'Common Needs',
+    image: require('../../assets/images/words/please.jpg'),
+  },
+  {
+    id: '13',
+    word: 'Help',
+    category: 'Common Needs',
+    image: require('../../assets/images/words/help.jpg'),
+  },
+  {
+    id: '14',
+    word: 'Hello',
+    category: 'Greetings',
+    image: require('../../assets/images/words/hello.jpg'),
+  },
+  {
+    id: '15',
+    word: 'Mom',
+    category: 'Family',
+    image: require('../../assets/images/words/mom.jpg'),
+  },
+  {
+    id: '16',
+    word: 'How Are You?',
+    category: 'Greetings',
+    image: require('../../assets/images/words/howareu.jpg'),
+  },
+  {
+    id: '17',
+    word: 'Sorry',
+    category: 'Feelings',
+    image: require('../../assets/images/words/sorry.jpg'),
+  },
+  {
+    id: '18',
+    word: 'Hi',
+    category: 'Greetings',
+    image: require('../../assets/images/words/hi.jpg'),
+  },
+];
